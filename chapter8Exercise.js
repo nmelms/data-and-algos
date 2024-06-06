@@ -2,6 +2,7 @@ let array1 = [1, 2, 3, 4, 5, 10, 99, 23];
 let array2 = [0, 2, 4, 6, 8, 23, 15];
 let letterArray = ["a", "b", "d", "c", "e", "f", "g", "h", "a"];
 let str = "the quick brownf box jumps over a lazy dog";
+let word = "mmnnzzaaddiirrtgghheexx";
 
 const intersection = (arr1, arr2) => {
   let map = {};
@@ -72,4 +73,22 @@ const missingLetter = (str) => {
     }
   }
 };
-console.log(missingLetter(str));
+
+const firstNotDupe = (word) => {
+  let map = {};
+
+  for (let i of word) {
+    if (!map[i]) {
+      map[i] = 1;
+    } else {
+      map[i]++;
+    }
+  }
+
+  for (let i in map) {
+    if (map[i] === 1) {
+      return i;
+    }
+  }
+};
+console.log(firstNotDupe(word));
