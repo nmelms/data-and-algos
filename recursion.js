@@ -16,4 +16,19 @@ const fizzBuzz = (start, end) => {
   fizzBuzz(start + 1, end);
 };
 
-console.log(fizzBuzz(1, 16));
+// console.log(fizzBuzz(1, 16));
+
+const palindrome = (string, left = 0, right = string.length - 1) => {
+  if (string[left] !== string[right]) {
+    console.log(false);
+    return false;
+  }
+  if (left > right) {
+    console.log("true");
+    return true;
+  }
+
+  palindrome(string, left + 1, right - 1);
+};
+
+palindrome("bobcat");
