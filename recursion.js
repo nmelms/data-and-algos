@@ -31,4 +31,18 @@ const palindrome = (string, left = 0, right = string.length - 1) => {
   palindrome(string, left + 1, right - 1);
 };
 
-palindrome("bobcat");
+// palindrome("bobcat");
+let array = [1, 2, 3, [4, 5, 6, [10, 11, 12]], 7, 8, 9];
+const flatten = (arr) => {
+  let res = [];
+  for (let element of arr) {
+    if (Array.isArray(element)) {
+      flatten(element);
+    }
+    res.push(element);
+  }
+
+  return res;
+};
+
+// console.log(flatten(array));
