@@ -120,4 +120,33 @@ const productOfArray = (arr) => {
   return val * productOfArray(arr);
 };
 
-console.log(productOfArray([1, 2, 3, 10]));
+// console.log(productOfArray([1, 2, 3, 10]));
+var nestedObject = {
+  data: {
+    info: {
+      stuff: {
+        thing: {
+          moreStuff: {
+            magicNumber: 44,
+            something: "foo2",
+          },
+        },
+      },
+    },
+  },
+};
+const contains = (obj, item) => {
+  for (let i in obj) {
+    if (obj[i] === item) {
+      return true;
+    }
+
+    if (typeof obj[i] === "object") {
+      return contains(obj[i], item);
+    }
+  }
+
+  return false;
+};
+
+// console.log(contains(nestedObject, "foo2"));
