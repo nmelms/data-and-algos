@@ -112,4 +112,12 @@ const all = (arr, callback) => {
   }
 };
 
-console.log(all(array1, callback));
+// console.log(all(array1, callback));
+
+const productOfArray = (arr) => {
+  if (arr.length === 0) return 1;
+  let val = arr.shift();
+  return val * productOfArray(arr);
+};
+
+console.log(productOfArray([1, 2, 3, 10]));
