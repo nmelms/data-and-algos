@@ -46,3 +46,35 @@ const flatten = (arr) => {
 };
 
 // console.log(flatten(array));
+let test = {
+  id: 2,
+  name: "nick",
+  lastName: "test",
+  type: {
+    animail: "bird",
+    sound: "chirp",
+    birdtype: {
+      birdtype: "woodpecker",
+      beaktype: "long",
+      length: [12, 15],
+    },
+  },
+};
+const flattenObj = (obj) => {
+  let res = {};
+
+  for (let element in obj) {
+    if (typeof obj[element] === "object") {
+      let newObj = flattenObj(obj[element]);
+      for (let key in newObj) {
+        res[key] = newObj[key];
+      }
+    } else {
+      res[element] = obj[element];
+    }
+  }
+
+  return res;
+};
+
+// console.log(flattenObj(test));
