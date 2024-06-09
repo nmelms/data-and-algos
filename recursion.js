@@ -15,9 +15,7 @@ const fizzBuzz = (start, end) => {
 
   fizzBuzz(start + 1, end);
 };
-
 // console.log(fizzBuzz(1, 16));
-
 const palindrome = (string, left = 0, right = string.length - 1) => {
   if (string[left] !== string[right]) {
     console.log(false);
@@ -30,7 +28,6 @@ const palindrome = (string, left = 0, right = string.length - 1) => {
 
   palindrome(string, left + 1, right - 1);
 };
-
 // palindrome("bobcat");
 let array = [1, 2, 3, [4, 5, 6, [10, 11, 12]], 7, 8, 9];
 const flatten = (arr) => {
@@ -44,7 +41,6 @@ const flatten = (arr) => {
 
   return res;
 };
-
 // console.log(flatten(array));
 let test = {
   id: 2,
@@ -76,5 +72,13 @@ const flattenObj = (obj) => {
 
   return res;
 };
-
 // console.log(flattenObj(test));
+
+const sumRange = (num) => {
+  if (num === 0) {
+    return 0;
+  }
+  return num + sumRange(num - 1);
+};
+
+console.log(sumRange(3));
