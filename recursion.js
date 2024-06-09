@@ -80,7 +80,6 @@ const sumRange = (num) => {
   }
   return num + sumRange(num - 1);
 };
-
 // console.log(sumRange(3));
 
 const power = (base, exp) => {
@@ -89,5 +88,28 @@ const power = (base, exp) => {
   }
   return base * power(base, exp - 1);
 };
-
 // console.log(power(2, 1));
+
+const factorial = (num) => {
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
+};
+
+// console.log(factorial(5));
+const callback = (num) => {
+  return num < 7;
+};
+let array1 = [1, 2, 3, 4, 5, 6];
+const all = (arr, callback) => {
+  if (arr.length === 0) {
+    return true;
+  }
+  let val = arr.shift();
+  if (!callback(val)) {
+    return false;
+  } else {
+    return all(arr, callback);
+  }
+};
+
+console.log(all(array1, callback));
