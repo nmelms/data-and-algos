@@ -150,3 +150,84 @@ const contains = (obj, item) => {
 };
 
 // console.log(contains(nestedObject, "foo2"));
+const array2 = [[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]];
+const countInt = (arr) => {
+  let total = 0;
+
+  for (let ele of arr) {
+    console.log(ele);
+    if (Array.isArray(ele)) {
+      total += countInt(ele);
+    } else {
+      total += ele * ele;
+    }
+  }
+  return total;
+};
+
+// console.log(countInt([[1, 2], 3]));
+
+const repeat = (reps, num) => {
+  let arr = [];
+  if (reps < 1) return arr;
+
+  arr.push(num);
+  return repeat(reps - 1, num);
+};
+
+// console.log(repeat(3, 5));
+
+const length = (str) => {
+  let total = 0;
+  total++;
+
+  if (str.length === 1) return 1;
+
+  total += length(str.slice(1));
+
+  return total;
+};
+
+// console.log(length("hellohas"));
+
+const sum = (arr, target) => {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let total = 0;
+
+  let val = arr.shift();
+  if (val === target) {
+    total++;
+  }
+
+  return total + sum(arr, target);
+};
+
+// console.log(sum([1, 2, 5, 5], 5));
+
+const flatten1 = (arr) => {
+  let res = [];
+
+  for (let ele of arr) {
+    if (Array.isArray(ele)) {
+      let newArray = flatten1(ele);
+      res = res.concat(newArray);
+    } else {
+      res.push(ele);
+    }
+  }
+  return res;
+};
+
+// console.log(flatten1([1, [2, [3, [4, 5]]]]));
+
+const some = (arr) => {
+  if (arr.length === 1) return arr[0];
+
+  let val = arr[0];
+
+  return val + some(arr.slice(1));
+};
+
+console.log(some([1, 2, 3, 4, 5, 1]));
