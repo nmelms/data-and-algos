@@ -8,6 +8,7 @@ const howSum = (targetSum, numbers, memo = {}) => {
     const res = howSum(remainder, numbers, memo);
 
     if (res !== null) {
+      console.log(res);
       memo[targetSum] = num;
       return [...res, num];
     }
